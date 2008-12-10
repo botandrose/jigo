@@ -1,14 +1,5 @@
-RDOC_ROOT = '/usr/lib/ruby/gems/1.8/doc/'
-
-error do
-  status 500
-  'So what happened was...' + request.env['sinatra.error'].message
-end
-
 get '/' do
-  dir = Dir.new RDOC_ROOT
-  dirs = dir.collect do |f|
-    File.new f
-  end
-  puts dirs.inspect
+  @gem_specs = Gem::SourceIndex.from_installed_gems.collect { |spec| spec[1] }
+  @gem_names = @gem_specs.collect(&:name).uniq
+  haml :index
 end

@@ -1,17 +1,24 @@
+root_dir = File.dirname(__FILE__)
+
 require 'rubygems'
 require 'sinatra'
 
 Sinatra::Application.default_options.merge!(
   :run => false,
-  :env => ENV['RACK_ENV'],
-  :raise_errors => true
+  :app_file => File.join(root_dir, 'app.rb'),
+  :views => File.join(root_dir, 'views'),
+  :env => ENV['RACK_ENV'].to_sym
 )
-
-use Rack::ShowExceptions
 
 log = File.new("sinatra.log", "a")
 STDOUT.reopen(log)
 STDERR.reopen(log)
 
-require 'app'
+if File.exists?(File.join(root_dir,'tmp', 'debug.txt'))
+  require 'ruby-debug'
+  Debugger.wait_connection = true
+  Debugger.start_remote
+  File.delete(File.join(root_dir,'tmp', 'debug.txt'))
+end
+
 run Sinatra.application
