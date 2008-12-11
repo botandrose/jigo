@@ -7,8 +7,10 @@ Sinatra::Application.default_options.merge!(
   :run => false,
   :app_file => File.join(root_dir, 'app.rb'),
   :views => File.join(root_dir, 'views'),
-  :env => ENV['RACK_ENV'].to_sym
+  :env => ENV['RACK_ENV'] ? ENV['RACK_ENV'].to_sym : :development
 )
+
+use Rack::ShowExceptions
 
 log = File.new("sinatra.log", "a")
 STDOUT.reopen(log)

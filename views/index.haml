@@ -1,3 +1,16 @@
-- @gem_names.each do |gem_name|
-  = gem_name
-  %br
+!!! Strict
+%html{ :lang => "en", :"xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", :"http-equiv" => "Content-Type" }
+    %meta{ :content => "en", :"http-equiv" => "Content-Language" }
+    %title= "RDoc Browser"
+    %link{ :media => "screen", :type => "text/css", :href => "rdoc-style.css", :rel => "stylesheet" }
+    %link{ :media => "screen", :type => "text/css", :href => "rdoc.css", :rel => "stylesheet" }
+  %body.list
+    #index
+      %h1 Gems
+      %ol
+        - @gems.each do |gem|
+          %li
+            %a{ :href => gem.main_path, :target => "rdoc" }= gem.name
+    %iframe{ :name => 'rdoc', :src => @gems.first.main_path }

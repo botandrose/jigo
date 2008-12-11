@@ -1,5 +1,18 @@
+require 'lib/gemlist'
+
 get '/' do
-  @gem_specs = Gem::SourceIndex.from_installed_gems.collect { |spec| spec[1] }
-  @gem_names = @gem_specs.collect(&:name).uniq
+  @gems = Gemlist.all
   haml :index
+end
+
+get '/rdoc.css' do
+  header 'Content-Type' => 'text/css; charset=utf-8'
+  sass :rdoc
+end
+
+get '/*' do
+  path = params[:splat].first
+
+  content_type 'text/css' if path =~ /\.css$/
+  File.read("#{Gemlist.path}/doc/#{path}")
 end
