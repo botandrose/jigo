@@ -25,7 +25,7 @@ describe 'Jigo' do
   
   describe "on main css" do
     it "should pass a css file" do
-      get_it "/rdoc.css"
+      get_it "/jigo.css"
       @response.should be_ok
       @response.headers.should include("Content-Type"=>"text/css")
       body.should_not be_empty

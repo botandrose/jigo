@@ -9,9 +9,9 @@ get '/' do
   haml :index
 end
 
-get '/rdoc.css' do
+get '/jigo.css' do
   content_type 'text/css'
-  sass :rdoc
+  sass :jigo
 end
 
 get '/*' do
