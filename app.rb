@@ -1,4 +1,8 @@
-require 'lib/gemlist'
+require File.dirname(__FILE__) + '/lib/jigo'
+
+set :root, Jigo.root
+set :public, Jigo.root / "public"
+set :views, Jigo.root / "views"
 
 get '/' do
   @gems = Gemlist.all
@@ -6,7 +10,7 @@ get '/' do
 end
 
 get '/rdoc.css' do
-  header 'Content-Type' => 'text/css; charset=utf-8'
+  content_type 'text/css'
   sass :rdoc
 end
 
