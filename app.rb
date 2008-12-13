@@ -13,6 +13,6 @@ end
 get '/*' do
   path = params[:splat].first
 
-  content_type 'text/css' if path =~ /\.css$/
+  content_type 'text/css' if File.extname(path) == ".css"
   File.read("#{Gemlist.path}/doc/#{path}")
 end

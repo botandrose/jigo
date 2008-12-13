@@ -12,5 +12,5 @@
       %ol
         - @gems.each do |gem|
           %li
-            %a{ :href => gem.main_path, :target => "rdoc" }= gem.name
-    %iframe{ :name => 'rdoc', :src => @gems.first.main_path }
+            %a{ :href => gem.main_rdoc_path, :target => "rdoc" }= gem.name
+    %iframe{ :name => 'rdoc', :src => @gems.first.main_rdoc_path }
