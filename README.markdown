@@ -18,6 +18,6 @@ Extract a copy of Jigo into a directory of your choice, and run
 
 	ruby app.rb
 
-which will launch the app on port 4567, if you have mongrel installed. Or you may simply point a Rack-aware webserver at it. Personally, I am using Phusion Passenger to host it at jigo.local. 
+which will launch the app on port 4567, if you have mongrel installed. Or you may simply point a Rack-aware webserver at public/. Personally, I am using Phusion Passenger to host it at jigo.local. 
 
 Also, I am using mislav's [hanna](http://github.com/mislav/hanna/tree) rdoc template, so the rdocs will look best in Jigo if you use that as well.
