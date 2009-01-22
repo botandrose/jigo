@@ -37,7 +37,7 @@ class Gemlist
   
   def main_rdoc_path
     return if available_versions.empty?
-    "/#{versions.max.full_name}/rdoc/index.html"
+    "/#{available_versions.max.full_name}/rdoc/index.html"
   end
   
   def <=>(other)
