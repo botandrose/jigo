@@ -1,6 +1,6 @@
 Jigo
 ============
-_Version 0.1.1 (December 13, 2008)_
+_Version 0.1.2 (January 24, 2008)_
 
 __Author:__  [Micah Geisel](mailto:originofstorms@gmail.com)
 
@@ -8,7 +8,7 @@ __Copyright:__  Copyright (c) 2008, Micah Geisel
 
 __License:__  MIT License.  See LICENSE file for more details.
 
-Jigo is a tiny web app for browsing your local gem rdocs. Its written using the [Sinatra](http://sinatrarb.com/) framework and the [Rack](http://rack.rubyforge.org/) middleware.
+Jigo is a tiny web app for browsing your local gem rdocs. Its written using the [Sinatra](http://sinatrarb.com/) framework and the [Rack](http://rack.rubyforge.org/) middleware. 
 
 ## Installation
 
