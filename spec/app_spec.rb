@@ -5,7 +5,7 @@ describe 'Jigo' do
   describe "on index" do
     before(:all) do
       @gem = Gemlist.all.first
-      get_it '/'
+      get '/'
     end
     it 'should not error out' do
       @response.should be_ok
@@ -25,7 +25,7 @@ describe 'Jigo' do
   
   describe "on main css" do
     it "should pass a css file" do
-      get_it "/jigo.css"
+      get "/jigo.css"
       @response.should be_ok
       @response.headers.should include("Content-Type"=>"text/css")
       body.should_not be_empty
@@ -35,7 +35,7 @@ describe 'Jigo' do
   describe "on rdoc passthru" do
     it "should not error out" do
       @gem = Gemlist.all.first
-      get_it @gem.main_rdoc_path
+      get @gem.main_rdoc_path
       @response.should be_ok
       body.should_not be_empty
     end

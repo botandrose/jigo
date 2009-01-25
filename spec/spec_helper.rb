@@ -1,17 +1,14 @@
-require File.dirname(__FILE__) + '/../lib/jigo'
-require 'spec'
-require 'spec/interop/test'
-require 'sinatra/test/methods'
+require 'rubygems'
+require 'sinatra'
+require 'sinatra/test/rspec'
 require 'rspec_hpricot_matchers'
 include RspecHpricotMatchers
  
-include Sinatra::Test::Methods
- 
-Sinatra::Application.default_options.merge!(
-  :env => :test,
+Sinatra::Application.set({
+  :environment => :test,
   :run => false,
   :raise_errors => true,
   :logging => false
-)
+})
  
-#Sinatra.application.options = nil
+require File.dirname(__FILE__) + '/../lib/jigo'
