@@ -1,4 +1,6 @@
-require File.dirname(__FILE__) + '/lib/jigo'
+require 'rubygems'
+require 'sinatra'
+require 'lib/jigo'
 
 set :root, Jigo.root
 set :public, Jigo.root / "public"

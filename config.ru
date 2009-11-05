@@ -16,9 +16,10 @@ if File.exists?(File.join(ROOT,'tmp', 'debug.txt'))
   File.delete(File.join(ROOT,'tmp', 'debug.txt'))
 end
 
-Sinatra::Application.default_options.merge!(
-  :app_file => File.join(ROOT, 'app.rb'),
-  :env => ENV['RACK_ENV'] ? ENV['RACK_ENV'].to_sym : :development
+require 'app'
+
+Sinatra::Default.set( 
+  :environment => ENV['RACK_ENV'] ? ENV['RACK_ENV'].to_sym : :development
 )
 
-run Sinatra.application
+run Sinatra::Application

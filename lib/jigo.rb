@@ -1,5 +1,5 @@
-require 'rubygems'
-require 'sinatra'
+require 'sass'
+require 'haml'
 
 # load everything in /lib
 Dir.new('lib').each do |file|
