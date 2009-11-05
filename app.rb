@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 require 'rubygems'
 require 'sinatra'
 require 'lib/jigo'
